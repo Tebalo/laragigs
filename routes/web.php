@@ -23,8 +23,8 @@ Route::get('/', function () {
 });
 
 // Single Listing
-Route::get('/listing/{id}', function ($id) {
-    return View('listing', [
+Route::get('/listings/{id}', function ($id) {
+    return view('listing', [
         'listing' => Listing::find($id)
     ]);
 });
@@ -50,7 +50,9 @@ Route::get('/listing/{id}', function ($id) {
 
 
 
-
+Route::get('/posts/{id}', function ($id) {
+    return response('Post ' . $id);
+})->where('id', '[0-9]+');
 
 
 
@@ -62,9 +64,7 @@ Route::get('/listing/{id}', function ($id) {
  *       ->header('foo', 'bar');
  *});
 
- *Route::get('/posts/{id}', function ($id) {
- *   return response('Post ' . $id);
- *})->where('id', '[0-9]+');
+
 
  *Route::get('/search', function (Request $request) {
  *   return $request->name . ' ' . $request->city;
