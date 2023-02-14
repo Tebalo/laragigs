@@ -10,17 +10,18 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
+     * php artisan migrate:refresh --seed
      * @return void
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(5)->create();
 
         Listing::create([
             'title' => 'Laravel Senior Developer',
             'tags' => 'laravel, javascript',
-            'location' => 'Acme Corp',
+            'company' => 'Acme Corp',
+            'location' => 'Boston, MA',
             'email' => 'email@email.com',
             'website' => 'https://www.acme.com',
             'description' => 'Lorem ipsum dolor sit amet, consectetur 
